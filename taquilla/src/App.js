@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react';   
 import Leftpanel from './components/leftpanel';
 import './App.css';
 import Centerpanel from "./components/centerpanel";
