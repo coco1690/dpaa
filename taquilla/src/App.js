@@ -43,7 +43,7 @@ class App extends Component {
                 <div className="center-panel">
                   <div>
 
-
+   
 
                     <div>
 
