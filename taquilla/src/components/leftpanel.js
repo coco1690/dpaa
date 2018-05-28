@@ -95,7 +95,7 @@ class Leftpanel extends Component {
 
             return (
                 <div key={index} className="sportbutton btn" onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(img/icons/" + index + ".png)" }}>
-                    <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
+                    <div style={{  position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
                     </div>
                 </div>
             )

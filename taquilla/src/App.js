@@ -9,7 +9,7 @@ import Login from "./components/login";
 import {
   BrowserRouter as Router, Link, Redirect,
   Route, Switch
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 
 class App extends Component {
