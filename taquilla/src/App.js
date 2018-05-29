@@ -38,7 +38,7 @@ class App extends Component {
               <div style={{ textAlign: 'left' }}>
 
                 <div className="left-panel">
-                  <Leftpanel />
+                  {/* <Leftpanel /> */}
                 </div>
                 <div className="center-panel">
                   <div>

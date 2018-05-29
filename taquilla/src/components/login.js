@@ -30,7 +30,15 @@ class Login extends React.Component  {
             canvas = <div className='navbar'> 
                 <ul>
                     <li><a href="#news" style={{background:'orange'}}>Deposito</a></li>
-                    <li><a href="#home" style={{ backgroundImage:'url(img/icons/setting.png)',textAlign:'center',marginTop:6, marginRight:5 }}></a></li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn">Settings</a>
+                            <div class="dropdown-content">
+                                <Link to="/">Historial</Link>
+                                <Link to="/">Deposito</Link>
+                                <Link to="/">Retiros</Link>
+
+                            </div>
+                        </li>
                         <li><Link to="/">Historial</Link> 0</li>
                     <li><Link to="/">Cupones</Link></li>
                     <li class="dropdown">
@@ -48,7 +56,7 @@ class Login extends React.Component  {
                             <Link to="/perfil">Perfil</Link>
                             <Link to="/">Balance</Link>
                             <Link to="/">Apuestas</Link>
-                            <Link to="/">salir</Link>
+                                <Link to="/" style={{ background:"rgba(113, 0, 0, 0.63)"}}>salir</Link>
                         </div>
                     </li>
                 </ul>

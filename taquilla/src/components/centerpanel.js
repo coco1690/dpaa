@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-// import firebase from '../fire';
+import data from '../data';
 // import { Link } from 'react-router-dom';
+
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 // import InsertButton from "react-bootstrap-table/lib/toolbar/InsertButton";
 // import Const from "react-bootstrap-table/lib/Const";
 
+const matches = data.database().ref().child('matches');
 
 // const affils = firebase.database().ref().child('affil');
 class Centerpanel extends Component {
@@ -15,9 +17,26 @@ class Centerpanel extends Component {
     constructor() {
         super()
         
-        this.state = { affil: [] }
+        this.state = { matches: [] }
     }
-    componentDidMount() {
+   
+        componentWillUnmount() {
+            matches.off();
+
+        }
+        
+
+
+        componentDidMount() {
+            matches.on('value', snapshot => {
+                // console.log (snapshot.val());
+
+                this.setState({
+                    matches: snapshot.val()
+                })
+            });
+
+        }
 
 
         //        affils.on("value", snapshot => {
@@ -34,7 +53,7 @@ class Centerpanel extends Component {
         
         
 
-    }
+    
     render() {
        
         // var match = [
@@ -69,7 +88,7 @@ class Centerpanel extends Component {
                 });
             }
         }
-        console.log(products);
+      
         addProducts(5);  
         // var equipos = [{
         //     id: "barcelona vs Venezuela",
@@ -111,7 +130,14 @@ class Centerpanel extends Component {
         //     dataField: 'price',
         //     text: 'Product Price'
         // }];
-        
+         let paises = [], aux;
+         let b = this.state.matches;
+         let deportesId = Object.keys(b);
+
+
+       
+
+
         return (
             
             <div className="panels">
@@ -143,5 +169,6 @@ class Centerpanel extends Component {
         );
     }
 }
+ 
 
 export default Centerpanel;
