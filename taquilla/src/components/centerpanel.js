@@ -69,7 +69,12 @@ class Centerpanel extends Component {
             return <TableHeaderColumn key={y} dataFormat={priceFormatter} width='105' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left',}}>{y}</TableHeaderColumn>
         });
         function priceFormatter(cell, row) {
-            return (<div> <div className='botn'>{cell}</div><div className='botn'>{cell}</div><div className='botn'>{cell}</div></div>);
+            return (
+            <div> 
+                <div className='botn btn'>{cell}</div>
+                <div className='botn btn'>{cell}</div>
+                <div className='botn btn'>{cell}</div>
+            </div>);
         }
 
         // let vb = [""]
@@ -85,14 +90,14 @@ class Centerpanel extends Component {
             return <TableHeaderColumn key={y} dataFormat={Formatter} width='70' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}</TableHeaderColumn>
         });
         function Formatter(cell, row) {
-            return (<div> <div className='botn'>{cell}</div><div className='botn'>{cell}</div></div>);
+            return (<div> <div className='botn btn'>{cell}</div><div className='botn btn'>{cell}</div></div>);
         }
         let otros = ["Others"]
         let tableo = otros.map((y) => {
             return <TableHeaderColumn key={y} dataFormat={oformat} width='5%' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}</TableHeaderColumn>
         });
         function oformat(cell, row) {
-            return (<div> <div ><img src='img/icons/11.png' style={{ marginLeft: 10 }}/></div></div>);
+            return (<div> <div className="btn"><img src='img/icons/11.png' style={{ marginLeft: 10 }}/></div></div>);
         }
         return (
 
