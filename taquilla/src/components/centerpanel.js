@@ -20,6 +20,7 @@ class Centerpanel extends Component {
 
         this.state = { 
             matches: [], 
+
         }
     }
 
@@ -63,13 +64,22 @@ class Centerpanel extends Component {
     render() {
 
     
-        let h = ["1  X  2","1X 12 X2"]
+        let h = ["1 X 2","1X 12 X2"]
         let table = h.map((y)=>{
             return <TableHeaderColumn key={y} dataFormat={priceFormatter} width='105' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left',}}>{y}</TableHeaderColumn>
         });
         function priceFormatter(cell, row) {
             return (<div> <div className='botn'>{cell}</div><div className='botn'>{cell}</div><div className='botn'>{cell}</div></div>);
         }
+
+        // let vb = [""]
+        // let tablem = h.map((y) => {
+        //     return <TableHeaderColumn key={y} dataFormat={pric} width='105' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}1X 12 X2</TableHeaderColumn>
+        // });
+        // function pric(cell, row) {
+        //     return (<div> <div className='botn'>{cell}</div><div className='botn'>{cell}</div><div className='botn'>{cell}</div></div>);
+        // }
+
         let j = ["OV / UN", "GG / NG"]
         let tablej = j.map((y) => {
             return <TableHeaderColumn key={y} dataFormat={Formatter} width='70' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}</TableHeaderColumn>
@@ -99,6 +109,7 @@ class Centerpanel extends Component {
                         <TableHeaderColumn dataField='name' tdStyle={{
                             textAlign: 'left',}}  dataAlign="center">Liga de Campeones AFC, Fase Eliminatorias</TableHeaderColumn>
                         {table}
+                        {/* {tablem} */}
                         {tablej}
                         {tableo}     
                     </BootstrapTable>

@@ -564,3 +564,35 @@ li.dropdown {
     display: block;
      
 }
+
+.reloj {
+  
+  font-size: 14px;
+  padding: 15px;
+  text-align: center;
+  margin-right: 24px;
+   
+}
+
+  .segundos{
+  display: inline-block;
+  font-size: 10px;
+  font-style: normal;
+  font-family: Gotham; 
+  position: absolute;
+}
+
+.horas, .minutos{
+  font-family: Gotham; 
+  font-style: normal;
+}
+
+.ampm{
+  display: inline-block;
+  font-size: 10px;
+  font-style: normal;
+  font-family: Gotham; 
+  position: absolute;
+   margin-left: 15px;  
+  margin-top: 0px;
+}
