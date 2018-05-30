@@ -38,19 +38,19 @@ html, body{
   border-left: 0px;
 }
 table {
-    border-collapse: initial;
+    border-collapse: collapse;
     width: 100%;
     /* background: rgba(245, 244, 244, 0.322) */
       
 
 }
 thead{
-  background: rgba(255, 255, 255, 0.534);
+  background: rgba(255, 255, 255, 0.1);
 
   
 }
 tr{
-  height: 30px;
+  height: 40px;
   
 }
 th, td {
@@ -71,6 +71,20 @@ input{
   box-sizing:border-box;
   padding: 5px;
   height:30px;
+}
+
+.botn{
+  height: 19px; 
+  margin:2px;
+  width: 30px;
+  padding-top: 7px;
+  display: inline-block;
+  background: rgba(245, 241, 241, 0.37);
+  text-align: center;
+  font-size: 8px;
+  
+  
+  
 }
 a:link {
     text-decoration: none;
@@ -355,7 +369,7 @@ a:link {
 }
 
 .matches-panel{
-  margin-top: 10px;
+  margin-top: -1px;
 
 }
 

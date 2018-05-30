@@ -27,32 +27,32 @@ class Login extends React.Component  {
 
         }else {
             return(
-            canvas = <div className='navbar'> 
+                canvas = <div className='navbar'> 
                 <ul>
-                    <li><a href="#news" style={{background:'orange'}}>Deposito</a></li>
-                        <li class="dropdown">
-                            <a href="javascript:void(0)" class="dropbtn">Settings</a>
-                            <div class="dropdown-content">
+                        <li><a href="#news" style={{ background: 'orange' }}>Deposito<i className='ion-social-usd' style={{ marginLeft: 10 }}></i></a></li>
+                        <li className="dropdown">
+                            <a href="javascript:void(0)" className="dropbtn">Settings<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i></a>
+                            <div className="dropdown-content">
                                 <Link to="/">Historial</Link>
                                 <Link to="/">Deposito</Link>
                                 <Link to="/">Retiros</Link>
 
                             </div>
                         </li>
-                        <li><Link to="/">Historial</Link> 0</li>
+                        <li><Link to="/">Historial</Link> 0<i className='ion-ios-alarm' style={{ marginLeft: 10 }}></i></li>
                     <li><Link to="/">Cupones</Link></li>
-                    <li class="dropdown">
-                            <a href="javascript:void(0)" class="dropbtn">Saldo</a> 
-                        <div class="dropdown-content">
+                    <li className="dropdown">
+                            <a href="javascript:void(0)" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i></a> 
+                        <div className="dropdown-content">
                             <Link to="/">Historial</Link>
                             <Link to="/">Deposito</Link>
                             <Link to="/">Retiros</Link>
                             
                         </div>   
                     </li>
-                    <li class="dropdown">
-                            <Link to='/' href=""class="dropbtn" style={{ background: 'rgba(227, 231, 6, 0.411)' }} >USUARIO </Link>
-                        <div class="dropdown-content">
+                    <li className="dropdown">
+                            <Link to='/' href="" className="dropbtn" style={{ background: 'rgba(227, 231, 6, 0.411)' }} >USUARIO<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i> </Link>
+                        <div className="dropdown-content">
                             <Link to="/perfil">Perfil</Link>
                             <Link to="/">Balance</Link>
                             <Link to="/">Apuestas</Link>

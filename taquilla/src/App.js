@@ -19,7 +19,7 @@ class App extends Component {
         <div className="App">
 
           <div className="header" style={{ textAlign: 'center' }}>
-            <div style={{ display: 'inline-block', width: 1190, height: '100%', position: 'relative' }}>
+            <div style={{ display: 'inline-block', width:'95%', height: '100%', position: 'relative' }}>
               <Link to="/"> <img alt="" src="/img/logo.png" style={{ height: '50%', position: 'absolute', top: 32, left: 0 }} /> </Link>
               <Login/>
             </div>
@@ -34,11 +34,11 @@ class App extends Component {
             <a className="menu-item btn" href="index.html"><i className="fa fa-tv" style={{ marginRight: 10 }}></i>Resultados</a>
           </div>
           <div style={{ textAlign: 'center', float: 'left', height: 'auto', width: '100%' }}>
-            <div style={{ display: 'inline-block', width: 1190, height: '100%', position: 'relative' }}>
+            <div style={{ display: 'inline-block', width:'95%', height: '100%', position: 'relative' }}>
               <div style={{ textAlign: 'left' }}>
-
+          <div className="contenedor">
                 <div className="left-panel">
-                  {/* <Leftpanel /> */}
+                  <Leftpanel />
                 </div>
                 <div className="center-panel">
                   <div>
@@ -51,7 +51,7 @@ class App extends Component {
                         <Route exact path="/" component={Centerpanel} />
                         <Route exact path="/perfil" component={Perfil} />
                         <Route exact path="/login/:perfil" component={Login} />
-                        
+                        <Route exact path="/pais/:index2" component={Centerpanel} />
                         <Redirect to="/" />
                       </Switch>
 
@@ -85,6 +85,7 @@ class App extends Component {
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
             </div>

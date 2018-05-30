@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import firebase from '../data';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { Link } from 'react-router-dom';
+
 const menu = firebase.database().ref().child('menu');
 
 class Leftpanel extends Component {
@@ -68,15 +70,17 @@ class Leftpanel extends Component {
 
 
                 let paisId = Object.keys(b[index].countries)
-                //        let c = b[index].groups;
-                //            console.log(c)
+                       let c = b[index].countries;
+                        //    console.log(c)
+                        
                 aux = paisId.map(index2 => {
-
+ 
                     return (
 
                         <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600, overflow: 'auto' }} className="countriesfav">
                             <div style={{ display: 'table-row' }}>
-                                <div className="country btn" style={{ display: 'table-cell' }}> {index2} </div>
+                                <div className="country btn" style={{ display: 'table-cell' }}> 
+                                <Link style={{ color:'white'}} to={"/pais/"+index2} >{c[index2].name }</Link> </div>
                             </div>
                         </div>
                     )

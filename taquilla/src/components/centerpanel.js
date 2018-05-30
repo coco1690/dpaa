@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import data from '../data';
 // import { Link } from 'react-router-dom';
-
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import Moment from 'react-moment';
+import 'moment-timezone';
+import { BootstrapTable, TableHeaderColumn, InsertButton } from 'react-bootstrap-table';
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-// import InsertButton from "react-bootstrap-table/lib/toolbar/InsertButton";
-// import Const from "react-bootstrap-table/lib/Const";
+
+
 
 const matches = data.database().ref().child('matches');
 
@@ -16,159 +17,98 @@ class Centerpanel extends Component {
 
     constructor() {
         super()
-        
-        this.state = { matches: [] }
+
+        this.state = { 
+            matches: [], 
+        }
     }
-   
-        componentWillUnmount() {
-            matches.off();
 
-        }
-        
-
-
-        componentDidMount() {
-            matches.on('value', snapshot => {
-                // console.log (snapshot.val());
-
-                this.setState({
-                    matches: snapshot.val()
-                })
-            });
-
-        }
+    componentWillUnmount() {
+        matches.off();
+       
+    }
 
 
-        //        affils.on("value", snapshot => {
-        //            this.setState({
-        //                affil: []
-        //            });
-        //            this.state.affil.push(snapshot.val())
-        //            this.setState({
-        //                affil: snapshot.val()
-        //            });
-        //
-        //            // console.log(this.state.affil);
-        //        });
-        
-        
+
+    componentDidMount() {
+        matches.on('value', snapshot => {
+            // console.log (snapshot.val())
+
+            var obj = Object.keys(snapshot.val()).map(
+
+                (i) => {
+                    let events = snapshot.val();
+                    let time = new Date(events[i].time);
+                    return {
+                        
+                        id: events[i].data,
+                        text: "+ 00",
+                        name: events[i].hteamName + " vs " + events[i].ateamName,
+                        time: time.getDate()+"/"+(time.getMonth()+1) +"/"+ time.getFullYear()+"<br/>"+time.getHours()
+                    }
+                    //
+                }
+            );
+            this.setState({
+                matches: obj,
+              
+            })
+            console.log(this.state.matches)
+        });
+        console.log(this.props.match.params)
+        console.log(this.props.match.data)
+
+    }
+
+    render() {
 
     
-    render() {
-       
-        // var match = [
-        //     {
-        //         567: {
-        //             id: "barcelona vs Venezuela",
-        //             name: 567,
-        //             price: 120
-                       
-        //         },
-        //         6543: {
-        //             id: "juventus vs amsterdam",
-        //             name: 500000,
-        //             price: 80000
-        //         }
-        //     }];
-        //     console.log(match);
-        const products = [];
-
-        function addProducts(quantity) {
-            const startId = products.length;
-            for (let i = 0; i < quantity; i++) {
-                const id = startId + i;
-                products.push({
-                    events: {
-                        onmouseout: () => alert('Click on name field')
-                    },
-
-                    id: id,
-                    name: 'Item' + id,
-                    price: 2100 + i
-                });
-            }
+        let h = ["1  X  2","1X 12 X2"]
+        let table = h.map((y)=>{
+            return <TableHeaderColumn key={y} dataFormat={priceFormatter} width='105' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left',}}>{y}</TableHeaderColumn>
+        });
+        function priceFormatter(cell, row) {
+            return (<div> <div className='botn'>{cell}</div><div className='botn'>{cell}</div><div className='botn'>{cell}</div></div>);
         }
-      
-        addProducts(5);  
-        // var equipos = [{
-        //     id: "barcelona vs Venezuela",
-           
-        // }, {
-        //     id: "juventus vs amsterdam",
-         
-        // }];
-
-        // var cuotas = [{
-        //     name: 540,
-
-        // },{
-        //     name:675
-        // }]
-        // const cellEdit = {
-        // mode: 'click',
-        // blurToSave: true
-        //  };
-        // const selectRow = {
-        //  mode: 'click',
-        // clickToSelect: true
-        //   };
-        // const keyBoardNav = {
-           
-        // enterToEdit: true
-        // };  
-      
-        // const products = [{
-        //     dataField: 'id',
-        //     text: 'Product ID',
-        //     events: {
-        //         onClick: () => alert('Click on Product ID field')
-        //     }
-        // }, {
-        //     dataField: 'name',
-        //     text: 'Product Name'
-        // }, {
-        //     dataField: 'price',
-        //     text: 'Product Price'
-        // }];
-         let paises = [], aux;
-         let b = this.state.matches;
-         let deportesId = Object.keys(b);
-
-
-       
-
-
+        let j = ["OV / UN", "GG / NG"]
+        let tablej = j.map((y) => {
+            return <TableHeaderColumn key={y} dataFormat={Formatter} width='70' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}</TableHeaderColumn>
+        });
+        function Formatter(cell, row) {
+            return (<div> <div className='botn'>{cell}</div><div className='botn'>{cell}</div></div>);
+        }
+        let otros = ["Others"]
+        let tableo = otros.map((y) => {
+            return <TableHeaderColumn key={y} dataFormat={oformat} width='5%' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}</TableHeaderColumn>
+        });
+        function oformat(cell, row) {
+            return (<div> <div ><img src='img/icons/11.png' style={{ marginLeft: 10 }}/></div></div>);
+        }
         return (
-            
+
             <div className="panels">
                 <div style={{ padding: 20, fontSize: 16, fontWeight: 'bold', background: 'rgba(255,255,255,0.1)', textTransform: 'uppercase' }} className="title-text">Fútbol-Próximos         </div>
 
-               <div className="matches-panel">
-                   
-                    <BootstrapTable  data={products}  cellEdit  selectRow  keyBoardNav tableStyle={{  border: '1px solid rgba(255, 255, 255, 0.1)'}} >
- 
+                <div className="matches-panel">
 
-               <TableHeaderColumn width='170' dataField='id' isKey dataAlign="center">PROXIMOS EVENTOS</TableHeaderColumn>
+                    <BootstrapTable data={this.state.matches}  tableStyle={{ fontSize:12, border: '1px solid rgba(255, 255, 255, 0.1)' }} >
 
-                        <TableHeaderColumn dataField='price' dataAlign="center">1 </TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">X</TableHeaderColumn>
-                        <TableHeaderColumn dataField='price' dataAlign="center">2</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">1X</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">12</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">X2</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">OV</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">UN</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">GG</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">NG</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name' dataAlign="center">OTROS</TableHeaderColumn>
+
+                        <TableHeaderColumn dataField='time' isKey width='10%' dataAlign="center"><img style={{margin:9}}   src='img/icons/10.png'/> </TableHeaderColumn>
+                       
+                        <TableHeaderColumn dataField='name' tdStyle={{
+                            textAlign: 'left',}}  dataAlign="center">Liga de Campeones AFC, Fase Eliminatorias</TableHeaderColumn>
+                        {table}
+                        {tablej}
+                        {tableo}     
                     </BootstrapTable>
-                    
+
                 </div>
             </div >
 
         );
     }
 }
- 
+
 
 export default Centerpanel;
