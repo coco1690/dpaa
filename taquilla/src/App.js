@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Leftpanel from './components/leftpanel';
 import './App.css';
 import Centerpanel from "./components/centerpanel";
+import Carusel from "./components/carusel";
 import Perfil from "./components/perfil";
 import Login from "./components/login";
 import Rightpanel from "./components/rightpanel";
@@ -9,6 +10,7 @@ import {
   BrowserRouter as Router, Link, Redirect,
   Route, Switch
 } from 'react-router-dom';
+
 
 
 class App extends Component {
@@ -38,10 +40,16 @@ class App extends Component {
           <div className="contenedor">
                 <div className="left-panel">
                   <Leftpanel />
+                    
                 </div>
+                  
                 <div className="center-panel">
-                  <div>
-
+                   
+                    
+                  <div >
+                      <div className='center-panel2' > 
+                      <Carusel />
+                      </div>
    
 
                     <div>

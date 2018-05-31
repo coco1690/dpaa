@@ -39,14 +39,15 @@ class Login extends React.Component {
                                 <Link to="/">Retiros</Link>
 
                             </div>
+  {/* -------------------------------------------------------RELOJ_NAV-------------------------------------------------------------------- */}
                         </li>
-                       
+
                         <li className="reloj">
                             <i className='ion-ios-alarm' style={{ marginLeft: -6 }}></i>&nbsp;
-                            <i id="horas" class="horas"> : </i> : 
-                            <i id="minutos" class="minutos"> : </i>&nbsp; 
-                            <i id="segundos" class="segundos"> 0 </i> 
-                            <i id="ampm" class="ampm"> 0 </i> 
+                            <i id="horas" className="horas"> : </i> : 
+                            <i id="minutos" className="minutos"> : </i>&nbsp; 
+                            <i id="segundos" className="segundos"> 0 </i> 
+                            <i id="ampm" className="ampm"> 0 </i> 
                             
 
                         </li>

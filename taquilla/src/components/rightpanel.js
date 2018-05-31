@@ -1,5 +1,6 @@
 
 import React from "react";
+import Sticky from 'react-sticky-el';
 import { Link } from 'react-router-dom';
 
 
@@ -15,6 +16,9 @@ class Rightpanel extends React.Component {
 
         return(
 
+
+<Sticky>
+                
 <div className="right-panel">
     <div style={{ background: 'rgba(255,255,255,0.1)' }}>
     <div style={{ padding: 10, fontWeight: 'bold', color: '#FEE064' }}>
@@ -41,6 +45,7 @@ class Rightpanel extends React.Component {
     </div>
     </div>
 </div>
+</Sticky>
         );
     }
 }
