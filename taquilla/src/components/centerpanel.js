@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import data from '../data';
 // import Moment from 'react-moment';
+
 import 'moment-timezone';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
@@ -145,7 +146,12 @@ class Centerpanel extends Component {
                 <div className="btn"><img alt="" src='/img/icons/11.png' style={{ marginLeft: 10 }} /></div>
             </div>);
         }
-
+        function time(cell, row) {
+            return (
+                <div>
+                    {cell}<br /><small>{row.time}</small>
+                </div>);
+        }
         // -------------------------------------------------------columna_BANDERAS_PAISES------------------------------------------------------------------
 
         function bandera(cell, row) {
@@ -155,17 +161,12 @@ class Centerpanel extends Component {
                 {cell}
                 </div>);
         }
-        function time(cell, row) {
-            return (
-                <div>                
-                {cell}<br/><small>{row.time}</small>
-                </div>);
-        }
 
+      
+// -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
         return (
-            // -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
-
-            <div className="panels">
+            
+                <div className="panels">
                 <div style={{ padding: 20, fontSize: 16, fontWeight: 'bold', background: 'rgba(255,255,255,0.1)', textTransform: 'uppercase' }} className="title-text">Fútbol-Próximos         </div>
 
                 <div className="matches-panel">
