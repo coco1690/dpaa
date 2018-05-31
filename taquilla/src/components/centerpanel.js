@@ -131,12 +131,7 @@ class Centerpanel extends Component {
                 <div className="btn"><img alt="" src='/img/icons/11.png' style={{ marginLeft: 10 }} /></div>
             </div>);
         }
-        function time(cell, row) {
-            return (
-                <div>
-                    {cell}<br /><small>{row.time}</small>
-                </div>);
-        }
+      
         // -------------------------------------------------------columna_BANDERAS_PAISES------------------------------------------------------------------
 
         function bandera(cell, row) {
@@ -146,8 +141,6 @@ class Centerpanel extends Component {
                 {cell}
                 </div>);
         }
-<<<<<<< HEAD
-=======
         function time(cell, row) {
             return (
                 <div>    
@@ -156,7 +149,6 @@ class Centerpanel extends Component {
                 {cell}</small>
                 </div>);
         }
->>>>>>> 0b9532a7feb838b3377c48bad36ef09ca1e06c63
 
       
 // -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
