@@ -35,7 +35,7 @@ class Centerpanel extends Component {
 
                 var a = new Date(events[id].timestamp * 1000);
                 var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-                var year = a.getFullYear();
+                // var year = a.getFullYear();
                 var month = months[a.getMonth()];
                 var date = a.getDate();
                 var hour = a.getHours();
@@ -47,7 +47,7 @@ class Centerpanel extends Component {
                 min = min < 10? "0"+min:min;
                
                 var time = hour + ':' + min+' '+ampm ;
-                var date = date + ' ' + month;
+                date = date + ' ' + month;
 
                 let odds = events[id].odds;
 
@@ -56,9 +56,9 @@ class Centerpanel extends Component {
                     // return events[id];
                     let clave = Object.keys(events[id].odds);
                     console.log("ceys:  ", clave);
+                    let nombres = clave.map((i)=>{return odds[i].name });
+                    console.log("names: ", nombres);
                  
-
-
                     return {
 
                         id: events[id].idmatch,
@@ -122,22 +122,7 @@ class Centerpanel extends Component {
                 <div className='botn btn'>{cell}</div>
             </div>);
         }
-        // -------------------------------------------------------columna_1_X_2/1X_12_X2-------------------------------------------------------------------
-
-        // let h = ["1 X 2", "1X 12 X2"]
-        // let table = h.map((y) => {
-        //     return <TableHeaderColumn key={y} dataFormat={priceFormatter} width='105' dataField='index' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}</TableHeaderColumn>
-        // });
-        // function priceFormatter(cell, row) {
-        //     return (
-        //         <div>
-        //             <div className='botn btn'>{cell}</div>
-        //             <div className='botn btn'>{cell}</div>
-        //             <div className='botn btn'>{cell}</div>
-        //         </div>);
-        // }
-
-
+        
         // -------------------------------------------------------columna_TIMES_PARTIDOS-------------------------------------------------------------------
 
 
@@ -161,6 +146,17 @@ class Centerpanel extends Component {
                 {cell}
                 </div>);
         }
+<<<<<<< HEAD
+=======
+        function time(cell, row) {
+            return (
+                <div>    
+                    {row.time}            
+                <br/><small>
+                {cell}</small>
+                </div>);
+        }
+>>>>>>> 0b9532a7feb838b3377c48bad36ef09ca1e06c63
 
       
 // -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
