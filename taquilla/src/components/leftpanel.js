@@ -67,20 +67,15 @@ class Leftpanel extends Component {
         let deportes = deportesId.map(index => {
             if (b[index].countries) {
 
-
-
                 let paisId = Object.keys(b[index].countries)
-                       let c = b[index].countries;
-                        //    console.log(c)
-                        
-                aux = paisId.map(index2 => {
- 
-                    return (
+                let c = b[index].countries;
 
+                aux = paisId.map(index2 => {
+                    return (
                         <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600, overflow: 'auto' }} className="countriesfav">
                             <div style={{ display: 'table-row' }}>
-                                <div className="country btn" style={{ display: 'table-cell' }}> 
-                                <Link style={{ color:'white'}} to={"/pais/"+index2} >{c[index2].name }</Link> </div>
+                                <div className={"country btn "+c[index2].class} style={{ display: 'table-cell' }}>
+                                    <Link  style={{ color: 'white' }} to={"/pais/" + index2} >{c[index2].name}</Link> </div>
                             </div>
                         </div>
                     )
@@ -95,11 +90,11 @@ class Leftpanel extends Component {
                 {aux}
             </div>
             paises.push(aux);
-
-
+            // if(b[index].class=="active")
+            // this.openCity(null, index)
             return (
-                <div key={index} className="sportbutton btn" onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
-                    <div style={{  position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
+                <div key={index} className={"sportbutton btn " + b[index].class} onClick={(event) => this.openCity(event, index)} style={{ backgroundImage: "url(/img/icons/" + index + ".png)" }}>
+                    <div style={{ position: "absolute", bottom: "7px", fontSize: 12, width: "100%", left: 0, textAlign: "center" }}> {b[index].name}
                     </div>
                 </div>
             )

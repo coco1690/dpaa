@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import data from '../data';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import 'moment-timezone';
-import { BootstrapTable, TableHeaderColumn, InsertButton } from 'react-bootstrap-table';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 
 let timestamp = new Date();
 //timestamp.getTime()
-let tr,tj=[];
-const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(1527641101);
+let tj = [];
+// let tr;
+const matches = data.database().ref('matchesAll').orderByChild('timestamp').startAt(timestamp.getTime()/1000);
 
 class Centerpanel extends Component {
 
@@ -30,29 +31,31 @@ class Centerpanel extends Component {
 
             var listaEventos = idListaEventos.map((id) => {
                 let events = snapshot.val();
-                let time = new Date(events[id].time);
+
+                var a = new Date(events[id].timestamp * 1000);
+                var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                var year = a.getFullYear();
+                var month = months[a.getMonth()];
+                var date = a.getDate();
+                var hour = a.getHours();
+                var ampm = hour >= 12 ? 'pm' : 'am';
+                hour = hour % 12;
+                hour = hour ? hour : 12
+                hour = hour < 10? "0"+hour:hour;
+                var min = a.getMinutes();
+                min = min < 10? "0"+min:min;
+               
+                var time = hour + ':' + min+' '+ampm ;
+                var date = date + ' ' + month;
+
                 let odds = events[id].odds;
-                
-                if (odds != undefined) {
+
+                if (odds !== undefined) {
                     console.table({ idm: id, odds: odds });
                     // return events[id];
                     let clave = Object.keys(events[id].odds);
                     console.log("ceys:  ", clave);
-                    let jj = clave.map((i) => { return events[id].odds[i] });
-                   
-                    
-
-                     tr = jj.map((k) => { 
-                        let i = Object.keys(k);
-                        i = i.map((u) => { 
-                            tj.push(k[u].short ? k[u].short : k[u].activeType)
-                            return k[u].short ? k[u].short : k[u].activeType})    
-                        return i 
-                    });
-                    console.log(tj);
-
-                   
-                    
+                 
 
 
                     return {
@@ -60,19 +63,21 @@ class Centerpanel extends Component {
                         id: events[id].idmatch,
                         pais: events[id].countryId,
                         text: "+ 00",
-                        name: events[id].hteamName + " vs " + events[id].ateamName,
-                        time: time.getDate() + "/" + (time.getMonth() + 1) + "/" + time.getFullYear() + " - " + time.getHours(),
+                        name: events[id].fullname,
+                        // time: time.getDate() + "/" + (time.getMonth() + 1) + "/" + time.getFullYear() + " - " + time.getHours(),
+                        time:time,
+                        date:date,
                         odds: events[id].odds,
                         // demo: JSON.stringify(test["03"].short ? test["03"].short : test["03"].activeType),
                         claves: clave.toString(),
-                        
+
                         //  o1:events[i].odds[clave[0]][0].o1
 
                     }
-                }else return null;
+                } else return null;
                 //
             });
-            listaEventos =  listaEventos.filter( (i)=>{ return i!= null })
+            listaEventos = listaEventos.filter((i) => { return i != null })
             console.table(listaEventos);
 
 
@@ -93,17 +98,17 @@ class Centerpanel extends Component {
 
     render() {
 
-// -------------------------------------------------------columna_others--------------------------------------------------------------------------
+        // -------------------------------------------------------columna_others--------------------------------------------------------------------------
         let otros = ["Others"]
         let tableo = otros.map((y) => {
             return <TableHeaderColumn key={y} dataFormat={oformat} width='5%' dataField='text' dataAlign="center" tdStyle={{ textAlign: 'left', }}>{y}
             </TableHeaderColumn>
         });
-// -------------------------------------------------------columna_OV/UN_GG/NG----------------------------------------------------------------------
+        // -------------------------------------------------------columna_OV/UN_GG/NG----------------------------------------------------------------------
         // let j = ["OV / UN", "GG / NG"];
         let j = tj;
 
-        j = j.filter((y,pos) => { return j.indexOf(y) == pos;})
+        j = j.filter((y, pos) => { return j.indexOf(y) === pos; })
 
 
         let tablej = j.map((y) => {
@@ -111,12 +116,12 @@ class Centerpanel extends Component {
         });
 
         function Formatter(cell, row) {
-            return (<div> 
+            return (<div>
                 <div className='botn btn'>{cell}</div>
                 <div className='botn btn'>{cell}</div>
-                </div>);
+            </div>);
         }
-// -------------------------------------------------------columna_1_X_2/1X_12_X2-------------------------------------------------------------------
+        // -------------------------------------------------------columna_1_X_2/1X_12_X2-------------------------------------------------------------------
 
         // let h = ["1 X 2", "1X 12 X2"]
         // let table = h.map((y) => {
@@ -131,17 +136,17 @@ class Centerpanel extends Component {
         //         </div>);
         // }
 
-    
-// -------------------------------------------------------columna_TIMES_PARTIDOS-------------------------------------------------------------------
+
+        // -------------------------------------------------------columna_TIMES_PARTIDOS-------------------------------------------------------------------
 
 
         function oformat(cell, row) {
-            return (<div> 
-                <div className="btn"><img src='/img/icons/11.png' style={{ marginLeft: 10 }} /></div>
-                </div>);
+            return (<div>
+                <div className="btn"><img alt="" src='/img/icons/11.png' style={{ marginLeft: 10 }} /></div>
+            </div>);
         }
 
-// -------------------------------------------------------columna_BANDERAS_PAISES------------------------------------------------------------------
+        // -------------------------------------------------------columna_BANDERAS_PAISES------------------------------------------------------------------
 
         function bandera(cell, row) {
             return (
@@ -150,9 +155,15 @@ class Centerpanel extends Component {
                 {cell}
                 </div>);
         }
+        function time(cell, row) {
+            return (
+                <div>                
+                {cell}<br/><small>{row.time}</small>
+                </div>);
+        }
 
         return (
-// -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
+            // -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
 
             <div className="panels">
                 <div style={{ padding: 20, fontSize: 16, fontWeight: 'bold', background: 'rgba(255,255,255,0.1)', textTransform: 'uppercase' }} className="title-text">Fútbol-Próximos         </div>
@@ -162,7 +173,9 @@ class Centerpanel extends Component {
                     <BootstrapTable data={this.state.matches} tableStyle={{ fontSize: 12, border: '1px solid rgba(255, 255, 255, 0.1)' }} >
 
 
-                        <TableHeaderColumn dataField='time' isKey width='10%' dataAlign="center"><img style={{ margin: 9 }} src='/img/icons/10.png' /> </TableHeaderColumn>
+                        <TableHeaderColumn dataField='date' dataFormat={time} isKey width='10%' dataAlign="center">
+                            <img alt="" style={{ margin: 9 }} src='/img/icons/10.png' />
+                        </TableHeaderColumn>
 
                         <TableHeaderColumn dataField='name' dataFormat={bandera} tdStyle={{
                             textAlign: 'left',

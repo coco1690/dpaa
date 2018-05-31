@@ -1,4 +1,5 @@
-import * as data from 'firebase';
+// import * as firebase from 'firebase/app';
+import data from 'firebase';
 
 var config = {
     apiKey: "AIzaSyAAWz8CBuEhy_O8CtPHcHXTKr7boFT6H_8",

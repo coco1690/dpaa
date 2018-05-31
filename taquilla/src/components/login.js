@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import 'moment-timezone';
 
 // import { Components } from 'react-bootstrap-navbar';
@@ -32,7 +32,7 @@ class Login extends React.Component {
                     <ul>
                         <li><a href="#news" style={{ background: 'orange' }}>Deposito<i className='ion-social-usd' style={{ marginLeft: 10 }}></i></a></li>
                         <li className="dropdown">
-                            <a href="javascript:void(0)" className="dropbtn">Settings<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i></a>
+                            <Link to="#" className="dropbtn">Settings<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i></Link>
                             <div className="dropdown-content">
                                 <Link to="/">Historial</Link>
                                 <Link to="/">Deposito</Link>
@@ -57,7 +57,7 @@ class Login extends React.Component {
                         </li>
                         <li><Link to="/">Cupones</Link></li>
                         <li className="dropdown">
-                            <a href="javascript:void(0)" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i></a>
+                            <Link to="#" className="dropbtn">Saldo<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i></Link>
                             <div className="dropdown-content">
                                 <Link to="/">Historial</Link>
                                 <Link to="/">Deposito</Link>
@@ -66,7 +66,7 @@ class Login extends React.Component {
                             </div>
                         </li>
                         <li className="dropdown">
-                            <Link to='/' href="" className="dropbtn" style={{ background: 'rgba(227, 231, 6, 0.411)' }} >USUARIO<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i> </Link>
+                            <Link to='#' className="dropbtn" style={{ background: 'rgba(227, 231, 6, 0.411)' }} >USUARIO<i className='ion-android-arrow-dropdown' style={{ marginLeft: 10 }}></i> </Link>
                             <div className="dropdown-content">
                                 <Link to="/perfil">Perfil</Link>
                                 <Link to="/">Balance</Link>

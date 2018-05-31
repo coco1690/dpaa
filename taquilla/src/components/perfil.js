@@ -21,7 +21,7 @@ class Perfil extends Component {
                  <div>
                         <div className="perfil" style={{ padding: 20,}}>
                             <div className="foto">
-                            <div className="iconuser"><img style={{ height: '75%', marginTop: 17 }}src="img/icons/user.png" /></div>
+                            <div className="iconuser"><img alt="" style={{ height: '75%', marginTop: 17 }}src="img/icons/user.png" /></div>
                                 <div className="formulario" style={{  fontSize: 13}}> 
 
                                     <br /> &nbsp;&nbsp;Nombre<br/><input type="text" value={this.state.name} style={{opacity:0.3, margin: 10, borderRadius: 5, width: "40%", background: 'rgba(255,255,255,0.1)' }} />    

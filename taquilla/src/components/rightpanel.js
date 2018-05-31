@@ -1,16 +1,16 @@
 
 import React from "react";
 import Sticky from 'react-sticky-el';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 // import { Components } from 'react-bootstrap-navbar';
 
 
 class Rightpanel extends React.Component {
-    constructor() {
-        super()
-    }
+    // constructor() {
+    //     super()
+    // }
 
     render() {
 
