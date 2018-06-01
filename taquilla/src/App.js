@@ -21,7 +21,7 @@ class App extends Component {
 
           <div className="header" style={{ textAlign: 'center' }}>
             <div style={{ display: 'inline-block', width:'95%', height: '100%', position: 'relative' }}>
-              <Link to="/"> <img alt="" src="/img/logo.png" style={{ height: '50%', position: 'absolute', top: 32, left: 0 }} /> </Link>
+              <Link to="/"> <img alt="" src="/img/logobet3.png" style={{ height: '50%', position: 'absolute', top: 32, left: 0 }} /> </Link>
               <Login/>
             </div>
           </div>
@@ -74,7 +74,15 @@ class App extends Component {
               </div>
             </div>
           </div>
-
+          <div className="footer1" style={{ textAlign: 'center' }}> 
+                     
+        <div style={{width:"33%",display:"inline", background: "#000"}}></div>
+        <div style={{width:"33%",display:"inline"}}></div>
+        <div style={{width:"34%",display:"inline"}}><img alt="" src="/img/code+.png" style={{ height: '25%', top: 5, left: 7, marginTop: 60, marginRight: 20 }} /></div>
+        
+        
+        
+        </div>
         </div>
       </Router>
 
