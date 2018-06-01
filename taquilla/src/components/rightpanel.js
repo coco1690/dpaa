@@ -28,9 +28,10 @@ class Rightpanel extends React.Component {
         let items = this.state.items
         let itemsid = Object.keys(items)
         let obj = itemsid.map((z)=>{
-            p = p * items[z].price ;
+            p = p * items[z].price;
+            p = p.toFixed(2);
             return(
-                <div className="header-menu" style={{ height: "100px" }}>
+                <div key={z} className="header-menu" style={{ height: "100px" }}>
                     <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
                         <span style={{ display: "block", fontSize: 16, paddingBottom: 10, color: "rgb(254, 224, 100)" }}>
                             {items[z].name}

@@ -138,8 +138,8 @@ class Centerpanel extends Component {
                         <td key={i.idmatch + 'i' + j} className={j}>
                             <div>
                                 <button onClick={
-                                    this.props.addTocart.bind(this, i.idmatch + j, {
-                                        choose: 1, id: i.idmatch, name: i.name, 
+                                    this.props.addTocart.bind(this, i.idmatch, {
+                                        choose: 1, id: i.idmatch, name: i.fullname, 
                                         odd: i.odds[j].o1+" ("+i.odds[j].o3+")", option: "Over", price: i.odds[j].o1, 
                                         time: i.time, type: j, version: i.odds[j].o1,
                                     }
