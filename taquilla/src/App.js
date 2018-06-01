@@ -10,19 +10,63 @@ import {
   BrowserRouter as Router, Link, Redirect,
   Route, Switch
 } from 'react-router-dom';
-
+let  removeFromCupon = (x) => { return alert('Remove it!') };
+let  save = (x) => { return alert('save it!') };
 
 
 class App extends Component {
+
   render() {
+    // let  addToCupon = (y) => { return x * y };
+    
+    let items = {
+      3225175: {
+        choose: 1,
+        id: 3225157,
+        name:
+          "France U2/Switzerla",
+        odd:
+          "-125 ( > 2,5)",
+        option:
+          "Over",
+        price:
+          "-1.5",
+        time:
+          "01-06-2018 12:45",
+        type:
+          4,
+        version:
+          0,
+      },
+      32251584: {
+        choose:
+          1,
+        id:
+          3225158,
+        name:
+          "Netherlan/Bolivia U",
+        odd:
+          "1.5 ( > 2,5)",
+        option:
+          "Over",
+        price:
+          "1.5",
+        time:
+          "05-06-2018 16:00",
+        type:
+          4,
+        version:
+          0,
+      }
+    };
     return (
       <Router>
         <div className="App">
 
           <div className="header" style={{ textAlign: 'center' }}>
-            <div style={{ display: 'inline-block', width:'95%', height: '100%', position: 'relative' }}>
+            <div style={{ display: 'inline-block', width: '95%', height: '100%', position: 'relative' }}>
               <Link to="/"> <img alt="" src="/img/logo.png" style={{ height: '50%', position: 'absolute', top: 32, left: 0 }} /> </Link>
-              <Login/>
+              <Login />
             </div>
           </div>
 
@@ -35,39 +79,39 @@ class App extends Component {
             <a className="menu-item btn" href="index.html"><i className="fa fa-tv" style={{ marginRight: 10 }}></i>Resultados</a>
           </div>
           <div style={{ textAlign: 'center', float: 'left', height: 'auto', width: '100%' }}>
-            <div style={{ display: 'inline-block', width:'95%', height: '100%', position: 'relative' }}>
+            <div style={{ display: 'inline-block', width: '95%', height: '100%', position: 'relative' }}>
               <div style={{ textAlign: 'left' }}>
-          <div className="contenedor">
-                <div className="left-panel">
-                  <Leftpanel />
-                    
-                </div>
-                  
-                <div className="center-panel">
-                   
-                    
-                  <div >
-                      <div className='center-panel2' > 
-                      <Carusel />
-                      </div>
-   
-
-                    <div>
-
-                      <Switch>
-                        <Route exact path="/" component={Centerpanel} />
-                        <Route exact path="/perfil" component={Perfil} />
-                        <Route exact path="/login/:perfil" component={Login} />
-                        <Route exact path="/pais/:index2" component={Centerpanel} />
-                        <Redirect to="/" />
-                      </Switch>
-
-                    </div>
+                <div className="contenedor">
+                  <div className="left-panel">
+                    <Leftpanel />
 
                   </div>
-                </div>
 
-                <Rightpanel/>
+                  <div className="center-panel">
+
+
+                    <div >
+                      <div className='center-panel2' >
+                        <Carusel />
+                      </div>
+
+
+                      <div>
+
+                        <Switch>
+                          <Route exact path="/" component={Centerpanel} />
+                          <Route exact path="/perfil" component={Perfil} />
+                          <Route exact path="/login/:perfil" component={Login} />
+                          <Route exact path="/pais/:index2" component={Centerpanel} />
+                          <Redirect to="/" />
+                        </Switch>
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <Rightpanel stake='0' items={items}  removeFromCupon={removeFromCupon} save={save} />
 
 
                 </div>
