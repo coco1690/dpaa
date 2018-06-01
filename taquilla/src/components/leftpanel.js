@@ -72,10 +72,16 @@ class Leftpanel extends Component {
 
                 aux = paisId.map(index2 => {
                     return (
-                        <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600, overflow: 'auto' }} className="countriesfav">
+                        <div key={index2} style={{ display: 'table', width: '100%', maxHeight: 600,  }} className="countriesfav">
                             <div style={{ display: 'table-row' }}>
-                                <div className={"country btn "+c[index2].class} style={{ display: 'table-cell' }}>
-                                    <Link  style={{ color: 'white' }} to={"/pais/" + index2} >{c[index2].name}</Link> </div>
+                            <div  style={{ }}>
+                                    <Link  className={"country btn "+c[index2].class}style={{width: '140px', color: 'white', display: 'table-cell' }} to={"/sport/"+index+"/pais/" + index2} >
+                                    
+                                    {c[index2].name}
+                                   
+                                    
+                                    </Link> 
+                                    </div>
                             </div>
                         </div>
                     )
