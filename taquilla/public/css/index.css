@@ -617,3 +617,11 @@ li.dropdown {
   linear-gradient(127deg, rgba(254,19,0,.8), rgba(0,255,0,0) 70.71%),
   linear-gradient(336deg, rgba(0,0,0,.8), rgba(0,0,255,0) 100%);
 }
+.logobet{
+height: 84%;
+position: absolute;
+top: 28px;
+left: 5px;
+z-index: 1;
+background-image: url("/img/logobet3.png");
+}

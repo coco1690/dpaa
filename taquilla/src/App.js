@@ -19,9 +19,9 @@ class App extends Component {
       <Router>
         <div className="App">
 
-          <div className="header" style={{ textAlign: 'center' }}>
+          <div className="header" style={{ textAlign: 'center', }}>
             <div style={{ display: 'inline-block', width:'95%', height: '100%', position: 'relative' }}>
-              <Link to="/"> <img alt="" src="/img/logobet3.png" style={{ height: '50%', position: 'absolute', top: 32, left: 0 }} /> </Link>
+              <Link className="logobet" to="/">  </Link>
               <Login/>
             </div>
           </div>
