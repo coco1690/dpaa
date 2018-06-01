@@ -47,8 +47,9 @@ class App extends Component {
                    
                     
                   <div >
+                     
                       <div className='center-panel2' > 
-                      <Carusel />
+                        <Carusel />
                       </div>
    
 
