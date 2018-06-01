@@ -20,7 +20,7 @@ class App extends Component {
     this.state = {
       items: {
         3225175: {
-          choose: 1, id: 3225157, name: "France U2/Switzerla", odd: "-125 ( > 2,5)", option: "Over", price: "-1.5", time: "01-06-2018 12:45", type: 4, version: 0,
+          choose: 1, id: 3225157, name: "France U2/Switzerla", odd: "2 ( > 2,5)", option: "Over", price: "2", time: "01-06-2018 12:45", type: 4, version: 0,
         },
         32251584: {
           choose: 1, id: 3225158, name: "Netherlan/Bolivia U", odd: "1.5 ( > 2,5)", option: "Over", price: "1.5", time: "05-06-2018 16:00", type: 4, version: 0,
