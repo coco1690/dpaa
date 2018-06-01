@@ -18,9 +18,32 @@ class Rightpanel extends React.Component {
     }
 
     render() {
-        // console.log("****  Items del Cupon **********");
-        // console.table(this.state.items);
         
+        let p= 1;
+      
+
+
+        console.log("****  Items del Cupon **********");
+        console.table(this.state.items);
+        let items = this.state.items
+        let itemsid = Object.keys(items)
+        let obj = itemsid.map((z)=>{
+            p = p * items[z].price ;
+            return(
+                <div className="header-menu" style={{ height: "100px" }}>
+                    <div style={{ padding: "5px", position: "relative", textAlign: "left" }}>
+                        <span style={{ display: "block", fontSize: 16, paddingBottom: 10, color: "rgb(254, 224, 100)" }}>
+                            {items[z].name}
+                        </span>
+                        <div>{items[z].time}</div>
+                        <div style={{ display: "inline", paddingTop: 10, color: "rgb(254, 224, 100)", fontSize: 14 }}>
+                            <div style={{ display: "table-cell" }}><span>{items[z].option + " " + items[z].odd}</span></div>
+                            <div style={{ display: "table-cell", right: 1, float: "right" }}><button to="#" className="btn confirm" style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#333', background: '#FEE064', fontSize: 14, border: 'hidden' }} onClick={ this.props.removeFromCupon.bind(this, z)}>x</button></div>
+                        </div>
+                    </div> 
+                </div>
+            )
+        } )
         return (
 
             <Sticky stickyStyle={{right:35,width:0}}>
@@ -31,31 +54,7 @@ class Rightpanel extends React.Component {
                             <span className="ticket-title">Cupón</span>
                         </div>
                         <div className="bets">
-                      
-                            <div style={{ textAlign: 'center', padding: 10 }}>Seleccione una cuota para insertarla al cupón.</div>
-                            <div className="header-menu" style={{height:"100px"}}>
-                                <div style={{padding:"5px",position:"relative",textAlign:"left"}}>
-                                <span style={{display:"block",fontSize:16, paddingBottom:10, color:"rgb(254, 224, 100)"}}>Equipo A/Equipo B</span>
-                                <div>01-06-2018 08:00am</div>
-                                <div style={{display:"inline",paddingTop:10, color:"rgb(254, 224, 100)", fontSize:14}}>
-                                    <div style={{display:"table-cell"}}><span>Over  1.25 (>3)</span></div>
-                                    <div  style={{display:"table-cell",right:1, float:"right"}}><button to="#" className="btn confirm" style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#333', background: '#FEE064', fontSize: 14, border: 'hidden' }} onClick={this.props.removeFromCupon}>x</button></div>                            
-                                </div>
-                            </div>
-                            </div>
-                            <div className="header-menu" style={{height:"100px"}}>
-                                <div style={{padding:"5px",position:"relative",textAlign:"left"}}>
-                                <span style={{display:"block",fontSize:16, paddingBottom:10, color:"rgb(254, 224, 100)"}}>Equipo A/Equipo B</span>
-                                <div>01-06-2018 08:00am</div>
-                                <div style={{display:"inline",paddingTop:10, color:"rgb(254, 224, 100)", fontSize:14}}>
-                                    <div style={{display:"table-cell"}}><span>Over  1.25 (>3)</span></div>
-                                    <div  style={{display:"table-cell",right:1, float:"right"}}><button to="#" className="btn confirm" style={{ boxSizing: 'borderBox', width: '100%', height: 40, color: '#333', background: '#FEE064', fontSize: 14, border: 'hidden' }} onClick={this.props.removeFromCupon.bind(this,3225175)}>x</button></div>                            
-                                </div>
-                            </div>
-                            </div>
-
-
-
+                      {obj}
                         </div>
                         <div >
                             <div >
@@ -64,7 +63,7 @@ class Rightpanel extends React.Component {
                                     <input id="amount" placeholder="Ej: 2000" style={{ boxSizing: 'border-box', height: 30, width: 120, border: 'hidden', outline: 'none', padding: 5, textAlign: 'right' }} defaultValue={this.state.stake} type="text" /></div>
                             </div>
                             <div style={{ marginTop: 20 }}>Cuota:
-                                <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">1</span>
+                                <span style={{ float: 'right', fontWeight: 'bold' }} className="totalodd">{p}</span>
                             </div>
                             <div style={{ marginTop: 10 }}>Pago Total:
                                 <span style={{ float: 'right', fontWeight: 'bold' }}><span className="currency-symbol">$</span> <span className="totalwin">0</span></span>
