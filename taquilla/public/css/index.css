@@ -209,6 +209,7 @@ a:link {
 .center-panel2,  .carousel-slider
 {
  height: 250px;
+ overflow: hidden;
  
 }
 
@@ -549,7 +550,7 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background:rgba(249, 250, 249, 0.308);
+    background:rgb(25, 46, 60);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.596);
     z-index: 1;

@@ -71,7 +71,7 @@ class Login extends React.Component {
                                 <Link to="/perfil">Perfil</Link>
                                 <Link to="/">Balance</Link>
                                 <Link to="/">Apuestas</Link>
-                                <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir</Link>
+                                <Link to="/" style={{ background: "rgba(113, 0, 0, 0.63)" }}>salir<i className='ion-power' style={{ marginLeft: 10 }}></i></Link>
                             </div>
                         </li>
                     </ul>

@@ -81,17 +81,18 @@ class App extends Component {
           <div style={{ textAlign: 'center', float: 'left', height: 'auto', width: '100%' }}>
             <div style={{ display: 'inline-block', width: '95%', height: '100%', position: 'relative' }}>
               <div style={{ textAlign: 'left' }}>
-                <div className="contenedor">
-                  <div className="left-panel">
-                    <Leftpanel />
-
-                  </div>
-
-                  <div className="center-panel">
-
-
-                    <div >
-                      <div className='center-panel2' >
+          <div className="contenedor">
+                <div className="left-panel">
+                  <Leftpanel />
+                    
+                </div>
+                  
+                <div className="center-panel">
+                   
+                    
+                  <div >
+                     
+                      <div className='center-panel2' > 
                         <Carusel />
                       </div>
 

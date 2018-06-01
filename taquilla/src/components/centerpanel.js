@@ -154,6 +154,7 @@ class Centerpanel extends Component {
 // -------------------------------------------------------TABLA_DE_MATCHES----------------------------------------------------------------------
         return (
             
+            
                 <div className="panels">
                 <div style={{ padding: 20, fontSize: 16, fontWeight: 'bold', background: 'rgba(255,255,255,0.1)', textTransform: 'uppercase' }} className="title-text">Fútbol-Próximos         </div>
 
