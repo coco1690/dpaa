@@ -96,10 +96,10 @@ class Centerpanel extends Component {
     //** Recibe array de objetos **/
     generarTabla(data) {
         if (data) {
-            console.log("Pintando datos... ");
+            // console.log("Pintando datos... ");
             let headers = [];
-            headers['0'] = "HORA"
-            headers['1'] = "Nombre de la liga de cansones";
+            headers[0] = "HORA"
+            headers[1] = "Nombre de la liga de cansones";
             // console.table(data);
             let idmatches = Object.keys(data);
             let odds = idmatches.map((id) => { return data[id].odds });
@@ -122,24 +122,33 @@ class Centerpanel extends Component {
 
             headers['z'] = "MAS";
 
-            console.log("headers",headers);
-            let x = headers;
-            headers = headers.map((i, e) => {
+            // console.log("headers",headers);
+            let x = Object.keys(headers);
+            headers = x.map((i) => {
                 // console.log(i, e);
-                return <th key={e} className='text-center'>{i}</th>
+                return <th key={i} className='text-center'>{headers[i]}</th>
             })
             let flujo = matchesObj;
             let rows = flujo.map((i, id) => {
 
-                x = x.map((e, i) => { return i; });
-                let off = x.map((j) => {
+                let p = x.map((i) => { return i });
+                // console.log(p);
+                let off = p.map((j) => {
                     return i.odds[j] ?
-                        <td key={i.idmatch + 'i' + j}>
-                            <div>{i.odds[j].o1}</div>
-                            <div>{i.odds[j].o2}</div>
-                            <div>{i.odds[j].o3}</div>
+                        <td key={i.idmatch + 'i' + j} className={j}>
+                            <div>
+                                <button onClick={
+                                    this.props.addTocart.bind(this, i.idmatch + j, {
+                                        choose: 1, id: i.idmatch, name: i.name, 
+                                        odd: i.odds[j].o1+" ("+i.odds[j].o3+")", option: "Over", price: i.odds[j].o1, 
+                                        time: i.time, type: j, version: i.odds[j].o1,
+                                    }
+                                    )} >{i.odds[j].o1}</button>
+                                <button>{i.odds[j].o2}</button>
+                                <button>{i.odds[j].o3}</button>
+                            </div>
                         </td>
-                        : (j > 2 ? <td key={j}></td> : (j==='z'?<td key={j}>+</td>:null))
+                        : (j > 2 ? <td key={j}></td> : (j === 'z' ? <td key={j}>+</td> : null))
                 });
                 return (
                     <tr key={id}>
@@ -181,9 +190,9 @@ class Centerpanel extends Component {
 
             console.log("Buscando pais en el deporte seleccionado: " + props.match.params.index2);
             filtro = data.database().ref('matchesAll').orderByChild('countryId').equalTo(props.match.params.index2);
-          
+
             filtro.on("value", snapshot => {
-               
+
                 console.log("Busqueda finalizada..");
                 // console.table(snapshot.val());
 
@@ -215,7 +224,7 @@ class Centerpanel extends Component {
 
             <div className="panels">
 
-                {this.state.resultados===1?"Cargando...":this.generarTabla(this.state.resultados)}
+                {this.state.resultados === 1 ? "Cargando..." : this.generarTabla(this.state.resultados)}
                 {this.generarTabla(this.state.matchesAlternative)}
                 {this.generarTabla(this.state.matches)}
             </div >

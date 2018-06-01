@@ -18,8 +18,8 @@ class Rightpanel extends React.Component {
     }
 
     render() {
-        console.log("****  Items del Cupon **********");
-        console.table(this.state.items);
+        // console.log("****  Items del Cupon **********");
+        // console.table(this.state.items);
         
         return (
 

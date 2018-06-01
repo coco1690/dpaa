@@ -34,11 +34,18 @@ class App extends Component {
     this.setState({
       items:temporal
     })  
-    return alert(x) 
+    return alert("Eliminado..") 
   
   };
   save = (x) => { return alert('save it!') };
-
+  addTocart=(x,data)=>{
+    let temporal = this.state.items;
+    temporal[x]=data;
+    this.setState({
+      items:temporal
+    })  
+    return alert("Agregado"); 
+  }
   render() {
  
     return (
@@ -82,10 +89,10 @@ class App extends Component {
                       <div>
 
                         <Switch>
-                          <Route exact path="/" component={Centerpanel} />
+                          <Route exact path="/" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />}/>
                           <Route exact path="/perfil" component={Perfil} />
                           <Route exact path="/login/:perfil" component={Login} />
-                          <Route exact path="/sport/:index/pais/:index2" component={Centerpanel} />
+                          <Route exact path="/sport/:index/pais/:index2" render={(props) => <Centerpanel {...props} addTocart={this.addTocart} />} />
                           <Redirect to="/" />
                         </Switch>
 
