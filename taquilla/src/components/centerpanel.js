@@ -137,18 +137,18 @@ class Centerpanel extends Component {
                     return i.odds[j] ?
                         <td key={i.idmatch + 'i' + j} className={j}>
                             <div>
-                                <button onClick={
+                                <div className='btn botn' onClick={
                                     this.props.addTocart.bind(this, i.idmatch, {
                                         choose: 1, id: i.idmatch, name: i.fullname, 
                                         odd: i.odds[j].o1+" ("+i.odds[j].o3+")", option: "Over", price: i.odds[j].o1, 
                                         time: i.time, type: j, version: i.odds[j].o1,
                                     }
-                                    )} >{i.odds[j].o1}</button>
-                                <button>{i.odds[j].o2}</button>
-                                <button>{i.odds[j].o3}</button>
+                                    )} >{i.odds[j].o1}</div>
+                                <div className="btn botn">{i.odds[j].o2}</div>
+                                <div className="btn botn">{i.odds[j].o3}</div>
                             </div>
                         </td>
-                        : (j > 2 ? <td key={j}></td> : (j === 'z' ? <td key={j}>+</td> : null))
+                        : (j > 2 ? <td key={j}></td> : (j === 'z' ? <td key={j}><i className='ion-android-add-circle' style={{ marginLeft: 10 }}></i></td> : null))
                 });
                 return (
                     <tr key={id}>
@@ -164,7 +164,7 @@ class Centerpanel extends Component {
             return (
                 <table className="table table-sm table-bordered bg-light">
                     <thead className="table-primary">
-                        <tr>
+                        <tr >
                             {headers}
                         </tr>
                     </thead>

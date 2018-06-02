@@ -27,7 +27,7 @@ class Carusel extends React.Component {
                     <img id="2" alt="" style={{ marginTop: -100 }} src="/img/icons/21.jpg" />
                 </div>
                 <div>
-                    <img id="3" alt="" style={{ marginTop: -100, }}src="/img/icons/20.jpg" />
+                    <img id="3" alt="" style={{ marginTop: -40 }}src="/img/icons/20.jpg" />
 
                 </div>
                
