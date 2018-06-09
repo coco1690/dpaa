@@ -164,7 +164,7 @@ class Centerpanel extends Component {
             return (
                 <table className="table table-sm table-bordered bg-light">
                     <thead className="table-primary">
-                        <tr >
+                        <tr>
                             {headers}
                         </tr>
                     </thead>
